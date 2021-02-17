@@ -13,7 +13,7 @@ const render = function() {
     todoList.textContent = '';
     todoCompleted.textContent = '';
     
-    todoData.forEach(function(item){
+    todoData.forEach(function(item, i, todoData){
         const li = document.createElement('li');
         li.classList.add('todo-item');
 
@@ -42,7 +42,7 @@ const render = function() {
         const btnRemove = li.querySelector('.todo-remove');
 
         btnRemove.addEventListener('click', function() {
-            todoData.splice(item, 1);
+            todoData.splice(i, 1);
             localStorage.removeItem('localTodoData');
             render();
 
